@@ -1,4 +1,4 @@
-﻿# NodeWarServer - Simple Node.js Express web server with runs a card game of War
+﻿# NodeWarServer - Simple Node.js Express web server that runs a card game of War
 
 ## Install dependencies
 
