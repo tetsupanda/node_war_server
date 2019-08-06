@@ -1,0 +1,28 @@
+{
+  "name": "nodewarserver",
+  "version": "1.0.0",
+  "description": "Game of War Node.js Server",
+  "main": "app.js",
+  "author": {
+    "name": "Rambo"
+  },
+  "scripts": {
+    "start": "node ./lib/app.js",
+    "build": "tsc --p tsconfig.json",
+    "test": "mocha -r ts-node/register src/**/test.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/express": "^4.17.0",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^8.0.14",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.2.2",
+    "typings": "^2.1.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
