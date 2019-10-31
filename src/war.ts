@@ -1,9 +1,6 @@
 import { Game } from "./interfaces";
 
 export const simpleWarLoop = (game: Game): Game => {
-  const playerOneWar = [];
-  const playerTwoWar = [];
-
   let playerOneDeck = game.playerOne.cards;
   let playerTwoDeck = game.playerTwo.cards;
 
