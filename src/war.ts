@@ -1,48 +1,48 @@
 import { Game } from "./interfaces";
 
 export const simpleWarLoop = (game: Game): Game => {
-  let playerOneWar = [];
-  let playerTwoWar = [];
-
   let playerOneDeck = game.playerOne.cards;
   let playerTwoDeck = game.playerTwo.cards;
 
   const playerOnePlayedCards = [];
   const playerTwoPlayedCards = [];
 
-  while (playerOneDeck.length > 0 && playerTwoDeck.length > 0) {
+  let currentPot = [];
+
+  while (true) {
+    if(playerOneDeck.length === 0 || playerTwoDeck.length === 0) {
+      break;
+    }
+
     const playerOneCard = playerOneDeck.shift();
     const playerTwoCard = playerTwoDeck.shift();
 
     playerOnePlayedCards.push(playerOneCard);
     playerTwoPlayedCards.push(playerTwoCard);
 
-    playerOneWar.push(playerOneCard);
-    playerTwoWar.push(playerTwoCard);
+    currentPot = [...currentPot, playerOneCard, playerTwoCard];
 
     const p1Value = (playerOneCard % 13) + 1;
     const p2Value = (playerTwoCard % 13) + 1;
 
-    if (playerOneDeck.length < 3 || playerTwoDeck.length < 3) {
-      break;
-    }
-
     if (p1Value === p2Value) {
-      playerOneWar.push(playerOneDeck.shift());
-      playerOneWar.push(playerOneDeck.shift());
-      playerOneWar.push(playerOneDeck.shift());
+      if(playerOneDeck.length <= 3 || playerTwoDeck.length <= 3) {
+        break;
+      }
+  
+      currentPot.push(playerOneDeck.shift());
+      currentPot.push(playerOneDeck.shift());
+      currentPot.push(playerOneDeck.shift());
 
-      playerTwoWar.push(playerTwoDeck.shift());
-      playerTwoWar.push(playerTwoDeck.shift());
-      playerTwoWar.push(playerTwoDeck.shift());
+      currentPot.push(playerTwoDeck.shift());
+      currentPot.push(playerTwoDeck.shift());
+      currentPot.push(playerTwoDeck.shift());
     } else if (p1Value > p2Value) {
-      playerOneDeck = playerOneDeck.concat(playerOneWar, playerTwoWar);
-      playerOneWar = [];
-      playerTwoWar = [];
+      playerOneDeck = [...playerOneDeck, ...currentPot];
+      currentPot.length = 0;
     } else {
-      playerTwoDeck = playerTwoDeck.concat(playerOneWar, playerTwoWar);
-      playerOneWar = [];
-      playerTwoWar = [];
+      playerTwoDeck = [...playerTwoDeck, ...currentPot];
+      currentPot.length = 0;
     }
   }
 
