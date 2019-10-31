@@ -1,21 +1,23 @@
-﻿# NodeWarServer - Simple Node.js Express web server that runs a card game of War
+﻿# NodeWarServer
+Simple Node.js Express web server that runs the card game of War
 
-## Install dependencies
+### Install dependencies
 
 You will need [Node.js](https://nodejs.org) installed on your machine. That is the only prerequisite.
 
 Then run `npm i` to install all local dependencies needed.
 
-## Getting Started
+### Getting Started
 
 1. Run the build with `npm run build`
 2. Start the server with: `npm start`
 3. Execute mocha test with: `npm run test`
 
-## Package Scripts
+### Package Scripts
 
-Build: `npm run build`
+> Build: `npm run build`
 
-Start: `npm start`
+> Start: `npm start`
 
-Tests: `npm run test`
+> Tests: `npm run test`
+
