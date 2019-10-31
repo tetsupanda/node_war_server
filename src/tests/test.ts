@@ -2,15 +2,16 @@
 import { initGame, buildPlayerDeck } from "../initGame";
 import { Game } from "../interfaces";
 import { simpleWarLoop } from "../war";
+import { randomBytes } from "crypto";
 
 let game: Game;
 
 describe("initGame Test", () => {
   it("should return a new game", () => {
-    const newGameId = 2;
+    const newGameId = randomBytes(16).toString('hex');
     game = initGame(newGameId);
 
-    expect(game.id).to.equal(newGameId.toString());
+    expect(game.id).to.equal(newGameId);
     expect(game.playerOne.deck).to.equal(26);
     expect(game.playerTwo.deck).to.equal(26);
   });

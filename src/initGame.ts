@@ -1,6 +1,6 @@
 import { Game } from "./interfaces";
 
-export const initGame = (id: number): Game => {
+export const initGame = (id: string): Game => {
   const initDeck = Array.from(new Array(52), (x, i) => i);
 
   const playerOneStartingDeck = buildPlayerDeck(initDeck, 26);
