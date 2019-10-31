@@ -30,6 +30,7 @@ describe("warLoop test", () => {
   it("should return a game object with a winner", () => {
     game = simpleWarLoop(game);
 
+    console.log(game);
     expect(game.winner).to.not.be.null;
   });
 });

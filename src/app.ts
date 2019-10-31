@@ -21,7 +21,14 @@ const main = () => {
   });
 
   app.get("/game/:id", (req, res) => {
-    const gameStatus = gamesArray.find(game => game.id === req.params.id);
+
+    console.log(gamesArray);
+
+    let gameStatus;
+    if(req.params.id) {
+      gameStatus = gamesArray.find(game => game.id === req.params.id);
+    }
+    console.log(gameStatus);
 
     if (!gameStatus) {
       res.status(404).json({ Error: "Game Not Found" });
